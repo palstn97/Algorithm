@@ -15,13 +15,13 @@ def solution(maps):
         for i in range(4):
             next_r = curr_r + dir[i][0]
             next_c = curr_c + dir[i][1]
-            if 0 <= next_r < n and 0 <= next_c < m and visited[next_r][next_c] == 0:
-                if maps[next_r][next_c] == 1:
-                    maps[next_r][next_c] += maps[curr_r][curr_c]
+            if 0 <= next_r < n and 0 <= next_c < m:
+                if maps[next_r][next_c] == 1  and visited[next_r][next_c] == 0:
+                    visited[next_r][next_c] = visited[curr_r][curr_c] + 1
                     q.append((next_r, next_c))
-                visited[next_r][next_c] = 1 # 방문처리
+                # visited[next_r][next_c] = 1 # 방문처리
                 
-    if maps[-1][-1] == 1:
-        return -1
+    if visited[-1][-1] != 0:
+        return visited[-1][-1]
     else:
-        return maps[-1][-1]
+        return -1
