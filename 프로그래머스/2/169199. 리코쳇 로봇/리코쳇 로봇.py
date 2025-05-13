@@ -14,7 +14,7 @@ def solution(board):
                 break
 
     q = deque()
-    q.append((start_r, start_c, 0))   # 이동 횟수
+    q.append((start_r, start_c, 0))
     visited[start_r][start_c] = 1
 
     while q:
