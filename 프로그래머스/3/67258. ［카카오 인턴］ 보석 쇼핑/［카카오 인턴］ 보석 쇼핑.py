@@ -1,26 +1,32 @@
 def solution(gems):
     answer = []
-    short = len(gems) + 1   # 최단 구간 길이 설정
-    l, r = 0, 0
+    short = len(gems) + 1
 
-    jewel = len(set(gems))  # gems에서 보석의 종류 찾아내기
+    l, r = 0, 0
+    jewel = len(set(gems))  # 보석 종류 수
+    jewel_cnt = 0           # 현재 윈도우 안의 보석 종류 수
+
     dic = {}
 
     while r < len(gems):
-        if gems[r] not in dic:
-            dic[gems[r]] = 1
+        gem = gems[r]
+        if gem not in dic or dic[gem] == 0:
+            dic[gem] = 1
+            jewel_cnt += 1
         else:
-            dic[gems[r]] += 1
+            dic[gem] += 1
         r += 1
 
-        while len(dic) == jewel:
+        while jewel_cnt == jewel:
             if r - l < short:
                 short = r - l
                 answer = [l + 1, r]
 
             dic[gems[l]] -= 1
             if dic[gems[l]] == 0:
-                del dic[gems[l]]
+                jewel_cnt -= 1
+                l += 1
+                break
             l += 1
 
     return answer
