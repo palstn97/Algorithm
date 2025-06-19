@@ -9,6 +9,7 @@ for i in range(N):
     age, name = input().split()
     member.append((int(age), name))
 
-for j in sorted(member, key=lambda x: x[0]):
-    # 처음에는 member.sort(key=lambda x: x[0])으로 했는데 nonetype은 iterable하지 않다고 함
+member.sort(key=lambda x:x[0])
+for j in member:
+    # 처음에는 member.sort(key=lambda x: x[0])으로 했는데 nonetype은 iterable하지 않다고 함 -> sort()는 반환값이 none이니까
     print(j[0], j[1])
