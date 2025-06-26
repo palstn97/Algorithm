@@ -20,4 +20,4 @@ for i in range(1, len(arr1) + 1):
         else:
             lcs[i][j] = max(lcs[i][j - 1], lcs[i - 1][j])   # arr2에서 이전 문자까지 비교한 LCS와 arr1에서 이전 문자까지 비교한 LCS 중 큰 값을 선택
 
-print(lcs[len(arr1)][len(arr2)])    # 가장 마지막 부분이 답
+print(lcs[-1][-1])    # 가장 마지막 부분이 답
