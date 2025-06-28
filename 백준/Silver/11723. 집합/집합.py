@@ -3,7 +3,7 @@ import sys
 M = int(sys.stdin.readline())
 S = set()
 for _ in range(M):
-    cal = sys.stdin.readline().strip().split()
+    cal = sys.stdin.readline().strip().split()    # input()을 받아오는 양이 많아서 이 문제에서 는 이 방법을 사용해야 한다. 잘 알아두기. 나중에 또 이런 경우가 생길시 사용할 방법
     if cal[0] == 'add':
         S.add(int(cal[1]))
     elif cal[0] == 'remove':
