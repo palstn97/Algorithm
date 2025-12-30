@@ -1,3 +1,4 @@
+# 분할 정복의 아이디어를 생각하며 사분면에 따라서 재귀를 돌려줄 것! 그리고 모든 숫자를 순회할 필요는 없다.
 N, r, c = map(int, input().split())
 
 def z(N, r, c):
@@ -19,4 +20,5 @@ def z(N, r, c):
     else:
         return 3 * half * half + z(N - 1, r - half, c - half)
     
+
 print(z(N, r, c))
