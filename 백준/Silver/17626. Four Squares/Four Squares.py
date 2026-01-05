@@ -21,4 +21,35 @@ for i in range(1, n + 1):
         dp[i] = min(dp[i], dp[i - j * j] + 1)   # dp[i]가 최소인 값으로 계속 갱신하고 dp[i-j*j]와 같은 경우는 그 전의 값들이 다 계산이 되어 있기 때문에 거기서 뽑아서 계산
         j += 1
 
+
 print(dp[n])
+
+'''
+브루트포스 해결법
+import math
+
+n = int(input())
+
+# 1개 (제곱수인가?)
+if int(math.sqrt(n)) ** 2 == n:
+    print(1)
+    exit()
+
+# 2개
+for i in range(1, int(math.sqrt(n)) + 1):
+    remain = n - i*i
+    if int(math.sqrt(remain)) ** 2 == remain:
+        print(2)
+        exit()
+
+# 3개
+for i in range(1, int(math.sqrt(n)) + 1):
+    for j in range(1, int(math.sqrt(n - i*i)) + 1):
+        remain = n - i*i - j*j
+        if int(math.sqrt(remain)) ** 2 == remain:
+            print(3)
+            exit()
+
+# 4개
+print(4)
+'''
