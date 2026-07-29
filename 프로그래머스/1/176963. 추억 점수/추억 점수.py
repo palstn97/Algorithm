@@ -10,9 +10,7 @@ def solution(name, yearning, photo):
     for j in range(m):
         sum = 0
         for k in photo[j]:
-            if k not in point_dict:
-                sum += 0
-            else:
+            if k in point_dict:
                 sum += point_dict[k]
         answer.append(sum)
     
